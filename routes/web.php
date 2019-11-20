@@ -12,6 +12,7 @@
 */
 
 Route::get('/', "PagesController@Index");
-
 Route::get('/about', 'PagesController@About');
 Route::get('/services', 'PagesController@Services');
+
+Route::resource('posts', 'PostsController');
