@@ -16,3 +16,6 @@ Route::get('/about', 'PagesController@About');
 Route::get('/services', 'PagesController@Services');
 
 Route::resource('posts', 'PostsController');
+Auth::routes();
+
+Route::get('/dashboard', 'DashboardController@index');
