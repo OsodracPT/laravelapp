@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mt-3">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -13,8 +13,26 @@
                             {{ session('status') }}
                         </div>
                     @endif
-<a href="/posts/create" class="btn btn-primary">Posts</a>
+                    <a href="/posts/create" class="btn btn-primary mb-3">Create a Post</a>
                     <h3>Your Blog Posts</h3>
+                    @if (count($posts)>0)
+                    <table class="table table-striped">
+                            <tr>
+                                <th>Title</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            @foreach ($posts as $post)
+                            <tr>
+                            <td>{{$post->title}}</td>
+                            <td><a href="/posts/{{$post->id}}" class="btn btn-default"></a></td>
+                                    <td></td>
+                                </tr>
+                            @endforeach
+                        </table>
+                    @else
+                    <p>You have no posts.</p>
+                        @endif
                 </div>
             </div>
         </div>
